@@ -1,0 +1,4 @@
+\beamer@sectionintoc {2}{Command line 101}{8}{0}{1}
+\beamer@sectionintoc {3}{GitHub, the right way}{24}{0}{2}
+\beamer@sectionintoc {4}{Automate what can be automated}{36}{0}{3}
+\beamer@sectionintoc {5}{Living in the terminal}{38}{0}{4}

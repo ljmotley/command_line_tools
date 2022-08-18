@@ -1,0 +1,9 @@
+PWD /Users/ljmotley/Research/command_line_tools/slides/sections
+INPUT /opt/homebrew/Cellar/texlive/20220321/share/texmf-dist/web2c/texmf.cnf
+INPUT /opt/homebrew/Cellar/texlive/20220321/share/texmf-var/web2c/pdftex/pdflatex.fmt
+INPUT basics.tex
+OUTPUT basics.log
+INPUT /opt/homebrew/Cellar/texlive/20220321/share/texmf-dist/fonts/map/fontname/texfonts.map
+INPUT /opt/homebrew/Cellar/texlive/20220321/share/texmf-dist/fonts/tfm/public/cm/cmbx10.tfm
+INPUT /opt/homebrew/Cellar/texlive/20220321/share/texmf-dist/fonts/tfm/public/cm/cmti10.tfm
+INPUT /opt/homebrew/Cellar/texlive/20220321/share/texmf-dist/fonts/tfm/public/cm/cmtt10.tfm

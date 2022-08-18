@@ -1,0 +1,13 @@
+# Fdb version 3
+["pdflatex"] 1660678432 "basics.tex" "basics.pdf" "basics" 1660678432
+  "/opt/homebrew/Cellar/texlive/20220321/share/texmf-dist/fonts/map/fontname/texfonts.map" 1647894602 3524 cb3e574dea2d1052e39280babc910dc8 ""
+  "/opt/homebrew/Cellar/texlive/20220321/share/texmf-dist/fonts/tfm/public/cm/cmbx10.tfm" 1647894602 1328 c834bbb027764024c09d3d2bf908b5f0 ""
+  "/opt/homebrew/Cellar/texlive/20220321/share/texmf-dist/fonts/tfm/public/cm/cmti10.tfm" 1647894602 1480 aa8e34af0eb6a2941b776984cf1dfdc4 ""
+  "/opt/homebrew/Cellar/texlive/20220321/share/texmf-dist/fonts/tfm/public/cm/cmtt10.tfm" 1647894602 768 1321e9409b4137d6fb428ac9dc956269 ""
+  "/opt/homebrew/Cellar/texlive/20220321/share/texmf-dist/web2c/texmf.cnf" 1647894602 40174 4e2f94c7b252db2ad3c0cfdef6912ab3 ""
+  "/opt/homebrew/Cellar/texlive/20220321/share/texmf-var/web2c/pdftex/pdflatex.fmt" 1647894602 2826544 732fa249968b774a754efe50b61be3dc ""
+  "basics.aux" 1660678297 32 3985256e7290058c681f74d7a3565a19 ""
+  "basics.tex" 1660678421 1109 869e62b2aaee2a504eb0472ed66b3b78 ""
+  (generated)
+  "basics.log"
+  "basics.pdf"
