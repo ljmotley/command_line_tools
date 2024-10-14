@@ -1,0 +1,243 @@
+
+\begin{frame}{What is the command line?}
+    \textbf{The interface that allows you to perform actions on your computer with commands.}
+
+    \begin{itemize}
+        \item Basically synonyms\footnote{I suspect this is pragmatically true for economists.
+        Personally, I am not good enough to need to know the difference between them.
+    I open my \textit{terminal}/\textit{command line}/\textit{shell} and do something.}:
+    \textit{terminal}, \textit{shell}, \textit{command line}, \textit{CLI}, \textit{command prompt}.
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Disclaimer}
+    \footnotesize
+    I am on a Mac and use \textit{zsh} shell.
+
+    The slides will refer to \textit{bash} shell, since it is more common.
+
+    The basic syntax identical, and the commands themselves are almost the same
+    (disclaimer: there are headache-inducing edge cases).
+
+    If you're on Windows, you will not have a \textit{bash} shell by default,
+    but you can install one.
+
+    I'll also use this slide to mention that I have only recently come to use
+    all of this stuff into my workflow.
+    I am definitely not qualified to teach this.
+    But these tools have totally changed the way to approach the job,
+    so hopefully I can at least convince you to give them a try.
+
+\end{frame}
+
+\begin{frame}{Command to English}
+    \stretchon
+    At the beginning, you will forget a lot of these commands and have to Google
+    how to do things.
+
+    A silly but helpful trick is to deliberately think what the command is doing in English
+    when you use the command.
+
+    Eventually, you can just think in English while you work and habit gets your
+    fingers to do the right thing.\footnote{This is also (and especially) true
+    for keyboard shortcuts, which are an important tool if you use a terminal-based
+    text editor.}
+
+\end{frame}
+
+\begin{frame}{Basic syntax}
+    \stretchon
+    \textbf{Syntax:} \texttt{[command]} \texttt{[option(s)]} \texttt{[argument(s)]}
+
+    \textbf{Example:} \texttt{find output -name `robustnesscheck87.png'}
+
+    Sometimes commands have implied arguments when unspecified:
+
+    \textbf{Example:} \texttt{cd} (implied $\sim$)
+\end{frame}
+
+\begin{frame}{Getting help}
+    \stretchon
+    Ask for help on a command with \texttt{-h} or \texttt{-help}.
+
+    \textbf{Example:} \texttt{git commit -h}
+
+    When \texttt{-h} doesn't work, there often is a manual entry that can be
+    accessed with \texttt{man [command]}.
+
+    \textbf{Example:} \texttt{man cat}
+
+    Bonus (on macOS or Linux): install \href{https://github.com/chrisallenlane/cheat}{cheat}.
+\end{frame}
+
+\begin{frame}{Moving around}
+    \stretchon
+    \begin{itemize}
+        \item[\texttt{pwd}:] ``Where am I?''
+        \item[\texttt{cd}:] ``Move to''
+        \item[\texttt{ls}:] ``List''
+        \item[\texttt{.} :] ``Here''
+        \item[\texttt{..} :] ``Backwards one directory''
+        \item[\texttt{$\sim$}:] ``User directory''
+        \item[\texttt{\textbackslash}:] ``Base directory''
+    \end{itemize}
+
+    \textbf{Example:} \texttt{cd ../..} ``Move backwards two directories''
+
+    \textbf{Example:} \texttt{ls input} ``List files in the input folder''
+\end{frame}
+
+\begin{frame}{Moving around}
+    \textbf{Warning:} \texttt{\textbackslash} tells \textit{bash} to interpret the next character
+    `literally'.
+    This is required with spaces.
+
+    If you named a folder \texttt{A Folder}, you would need to \texttt{cd A}\textbackslash\hspace{0.1cm}\texttt{Folder}.
+    \footnote{Another benefit of using the command line is that it encourages you to name your folder
+    \texttt{my\_folder} instead.}
+\end{frame}
+
+\begin{frame}{Moving around}
+    \begin{itemize}
+        \item[\texttt{find}:] ``Find (files or folders)''
+    \end{itemize}
+
+
+
+    \textbf{Example:} \texttt{find a\_folder -iname `*.txt'}
+
+    ``Find text files in \texttt{a\_folder}''
+
+    \textbf{Example:} \texttt{find . -type d -iname `a\_folder'}
+
+    ``Find folders with name \texttt{a\_folder}''
+
+    \textbf{Example:} \texttt{find . -size +100k}
+
+    ``Find files that are larger than 100kb''
+\end{frame}
+
+\begin{frame}{Creating and destroying things}
+    \stretchon
+    \begin{itemize}
+        \item[\texttt{mkdir}:] ``Make a directory''
+        \item[\texttt{touch}:] ``Create a file''
+        \item[\texttt{rm}:] ``Destroy a file''
+        \item[\texttt{rmdir}:] ``Destroy a directory'' (fails if not empty)
+        \item[\texttt{rm -r}:] ``Destroy this and everything it contains''
+    \end{itemize}
+
+    \textbf{Example:} \texttt{touch hello.txt}
+    ``Create an empty .txt file called \texttt{hello.txt}.''
+
+    \large \textbf{Warning:} \texttt{rm} \textbf{really does destroy,
+    it doesn't move to Trash}
+
+\end{frame}
+
+\begin{frame}{Other common operations}
+    \stretchon
+    \begin{itemize}
+        \item[\texttt{cp}:] ``Copy this''
+        \item[\texttt{cp -r}:] ``Copy this and everything it contains''
+        \item[\texttt{mv}:] ``Move (or rename, if moving to same directory)''
+    \end{itemize}
+    \vspace{0.4cm}
+
+    \textbf{Example:} \texttt{mv hello.txt goodbye.txt} ``rename \texttt{hello.txt} to \texttt{goodbye.txt}''
+\end{frame}
+
+\begin{frame}{Wildcards}
+    If you've stopped paying attention and don't know about these, pay attention again.
+
+    \begin{itemize}
+        \item[\texttt{*}:] ``I can be anything''
+        \item[\texttt{?}:] ``I can be one thing''
+    \end{itemize}
+
+
+    \textbf{Example:} \texttt{mv input/*.txt .} ``move all text files in the input directory here''
+
+    \textbf{Example:} \texttt{ls hello\_?.txt} ``lists \texttt{hello\_1.txt} but not \texttt{hello\_10.txt}''
+\end{frame}
+
+\begin{frame}{Echo and cat}
+    \begin{itemize}
+        \item[\texttt{echo}] ``Print''
+        \item[\texttt{cat}] ``Print the contents of a file''
+        \item[\texttt{>}] ``write to file (overwrites if it exists)''
+        \item[\texttt{>>}] ``append to file''
+    \end{itemize}
+
+\textbf{Example:} \texttt{echo `Hello' > hello.txt}
+
+``Create text file with `Hello' on the first line''
+
+\textbf{Example:} \texttt{cat hello.txt > goodbye.txt}
+
+``Copies everything from \texttt{hello.txt} to \texttt{goodbye.txt}''
+
+\textbf{Example:} \texttt{echo `Goodbye' >> goodbye.txt}
+
+``Adds `Goodbye' to the last line of \texttt{goodbye.txt}''
+
+\end{frame}
+
+\begin{frame}{Head and tail}
+    \begin{itemize}
+        \item[\texttt{head} ] ``Show me the beginning of the file''
+        \item[\texttt{tail}\footnote{
+        \textit{Note:} \texttt{tail} is useful for debugging.
+        We often do \texttt{tail stata\_do\_file\_that\_failed.log}
+    to quickly see the final error message.}]
+        ``Show me the end of the file''
+    \end{itemize}
+
+    \textbf{Example:} \texttt{head `goodbye.txt'}
+
+    ``Show me the first 10 line of \texttt{goodbye.txt} ''
+
+    \textbf{Example:} \texttt{tail -n 3 `hello.txt'}
+
+    ``Show me the last 3 lines of \texttt{hello.txt} ''
+
+\end{frame}
+
+\begin{frame}{Sed, grep, and piping}
+    \texttt{sed}
+    \footnote{I've seen people on Stack Overflow advocate for \texttt{awk} over \texttt{sed}
+    on a case-by-case basis
+    (and it may be especially better for \texttt{.csv} editing),
+    but I have less experience with \texttt{awk}.}
+    and \texttt{grep} are great and can do almost any task in their domain
+    (though you may need to Google around some to find the right flag).
+
+
+    \begin{itemize}
+        \item[\texttt{sed}:] ``Substitute''
+        \item[\texttt{grep}:] ``Find (text)''
+        \item[\texttt{|}:] ``Pass to the next command''
+    \end{itemize}
+
+    \textbf{Example:} \texttt{grep -Rl ``hello''}
+
+    \textbf{Example:} \texttt{sed -i ``s/hello/goodbye/'' hello.txt}
+
+    \textbf{Example:} \scriptsize \texttt{grep -o ``input/[A-Za-z0-9]*.[a-z]'' | xargs sed -i ``s/input/output/g''}
+
+\end{frame}
+
+\begin{frame}{Aliases}
+    \stretchon
+    Aliases are self-defined shortcuts.
+
+    You define these in a script file that executes every time you launch
+    your terminal.
+
+    The file is in your user directory and is called \texttt{.bashrc} (or \texttt{.zshrc}).
+
+    \textbf{Syntax:} \texttt{alias="[full command]"}
+
+
+    This is also where your \texttt{PATH} lives (I can add notes on this).
+\end{frame}

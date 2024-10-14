@@ -1,0 +1,113 @@
+\begin{frame}{Configuration}
+    The first time you use GitHub on the command line,
+    you need to configure your username and email.
+
+    \texttt{git config --global user.name ``your\_username''}
+
+    \texttt{git config --global user.name youremail@example.com}
+
+    GitHub uses personal access tokens (PATs) instead of passwords.
+
+    Follow the steps outlined \href{https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token}{here} to get a PAT to use
+    when prompted for your password.
+\end{frame}
+
+\begin{frame}{Cloning a repository}
+    Go to the repository, click on the big green `Code` button, and copy the link.
+
+    Open the command line, navigate to the parent folder that you the project
+    to exist in, and type:
+
+    \texttt{git clone [link]}
+
+    It should download the project into a folder with the repository name.
+\end{frame}
+
+\begin{frame}{Commits and branches}
+    When in a GitHub repository, you live at a certain \texttt{commit} on a certain branch.
+
+    Commits are nodes that correspond a set of changes to code.
+
+    If you only commit to the \texttt{main} (default) branch,
+    your project history is just a series of changes from the first commit to your
+    most recent commit.
+\end{frame}
+
+\begin{frame}{Commits and branches}
+    \stretchon
+    You can create also a new \texttt{branch},
+    which will become its own series new commits that are not incorporated into the
+    main code.
+
+    When you decide to incorporate the new branch into the \texttt{main}
+    (on GitHub this normally means that a teammate has reviewed and approved
+    the changes via a pull request),
+    you can \texttt{merge} the changes from the branch into \texttt{main}.
+\end{frame}
+
+
+\begin{frame}{The basic toolkit}
+    \stretchon
+    \begin{itemize}
+        \item[]\texttt{git pull}: ``Grab and apply the changes that I don't have''
+        \item[]\texttt{git branch [branch name]}\footnote{
+                \scriptsize Branching off of the commit that you are currently located at.
+            }: ``Create a branch''
+        \item[]\texttt{git branch}: ``Show me branches that I could switch to''
+        \item[]\texttt{git switch [branch name]}: ``Switch to a certain branch''
+        \item[]\texttt{git status}: ``Show me the state of directory''
+        \item[]\texttt{git restore [files]}: ``Undo changes that I have made''
+        \item[]\texttt{git clean}: ``Undo changes that I have made''
+        \item[]\texttt{git add [files]}: ``Stage these changes to be committed''
+        \item[]\texttt{git commit -m ``commit message''}: ``Commit staged changes''
+        \item[]\texttt{git push}: ``Send commits that I have made off to GitHub''
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Git checkout and other commands to check out}
+    \stretchon
+    \begin{itemize}
+    \item[]\texttt{git checkout [branch name]}:
+
+        ``Switch to the branch''
+    \item[]\texttt{git checkout [branch name] -- [file]}:
+
+        ``Restore the file to the state it
+    is at in the specified branch''
+    \end{itemize}
+
+    If you are spending a lot of time integrating changes from one branch into
+    another, look into \texttt{rebase} and \texttt{cherry-pick}.
+\end{frame}
+
+\begin{frame}{Worktrees}
+    \stretchon
+    I just discovered the \texttt{git worktree} command,
+    and it is great.
+
+    If you work on multiple branches simultaneously often and don't want to constantly
+    be switching between them, start using worktrees.
+\end{frame}
+
+\begin{frame}{git diff}
+\end{frame}
+
+\begin{frame}{git bisect}
+\end{frame}
+
+\begin{frame}{git add --patch}
+\end{frame}
+
+\begin{frame}{GitHub CLI}
+    \stretchon
+    Also look into \href{https://cli.github.com/}{GitHub CLI}.
+
+    It allows you to do most of what you can do on the website from the terminal.
+
+    \textbf{Example:} \texttt{gh repo create new\_repo}
+
+    \textbf{Example:} \texttt{gh issue list -a ljmotley}
+
+    \textbf{Example:} \texttt{gh browse}
+
+\end{frame}

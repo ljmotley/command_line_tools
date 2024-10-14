@@ -1,0 +1,129 @@
+\documentclass[12pt,notes=hide,aspectratio=169,mathserif,hyperref={colorlinks=true}]{beamer}
+
+% PACKAGES
+\usepackage{graphics}  % Support for images/figures
+\usepackage{graphicx}  % Includes the \resizebox command
+\usepackage{url}	   % Includes \urldef and \url commands
+\usepackage{natbib}
+\usepackage{bibentry}  % Includes the \nobibliography command
+\usepackage{verbatim}  %Supports comments
+\usepackage{booktabs} %Supports \toprule, \bottomrule, etc in tables
+\usepackage{etoolbox}  %Supports toggle commands
+\usepackage{datetime}
+\usepackage{bm}	%Supports bold math \bm
+\usepackage{amsfonts}  % Lots of stuff, including \mathbb
+\usepackage{amsmath}   % Standard math package
+\usepackage{amsthm}    % Includes the comment functions
+\usepackage{array}
+\usepackage{twemojis}
+%\usepackage{tabularx}
+%\usepackage{setspace}
+\usepackage{caption}
+\captionsetup[figure]{labelformat=empty}
+\usepackage[normalem]{ulem} % Customize underline
+
+
+% CUSTOM DEFINITIONS
+\def\newblock{} %Get beamer to cooperate with BibTeX
+\linespread{1.2}
+%\definecolor{maroon}{RGB}{152,0,46}  %Booth maroon defined at http://staff.chicagobooth.edu/marketing/docs/email-signature-standards.pdf
+\definecolor{blue}{RGB}{0,100,255} %Maroon 1 Pantone 202 defined at https://harris.uchicago.edu/files/harris.branding_identity_guidelines.final__0.pdf
+\definecolor{pinkish}{RGB}{200,25,128}
+\newcommand{\ptindex}{k}
+\newcommand{\docindex}{\omega}
+
+\hypersetup{linkcolor=blue}
+\hypersetup{
+    colorlinks,
+    citecolor=pinkish,
+}
+% from https://tex.stackexchange.com/questions/148365/how-do-i-ask-beamer-to-exactly-fill-up-a-slide
+\def\itemsymbol{$\blacktriangleright$}
+\let\svpar\par
+\let\svitemize\itemize
+\let\svenditemize\enditemize
+\let\svitem\item
+\let\svcenter\center
+\let\svendcenter\endcenter
+\let\svcolumn\column
+\let\svendcolumn\endcolumn
+\def\newitem{\renewcommand\item[1][\itemsymbol]{\vfill\svitem[##1]}}%
+\def\newpar{\def\par{\svpar\vfill}}%
+\newcommand\stretchon{%
+  \newpar%
+  \renewcommand\item[1][\itemsymbol]{\svitem[##1]\newitem}%
+  \renewenvironment{itemize}%
+    {\svitemize}{\svenditemize\newpar\par}%
+  \renewenvironment{center}%
+    {\svcenter\newpar}{\svendcenter\newpar}%
+  \renewenvironment{column}[2]%
+    {\svcolumn{##1}\setlength{\parskip}{\columnskip}##2}%
+    {\svendcolumn\vspace{\columnskip}}%
+}
+
+% IDENTIFYING INFORMATION
+\title{Command Line Tools}
+\author[Motley]{
+Luke Motley \\ \and
+Nishka Sharma
+\\[1.0em]
+{University of Chicago}
+}
+\date{{\color{blue}\monthname[\the\month] \the\year}}
+
+% THEMATIC OPTIONS
+\setbeamercovered{transparent}
+\usetheme[subsectionpage=simple]{metropolis}
+\usecolortheme{default}
+\setbeamercolor{frametitle}{bg=blue}
+\setbeamercolor{progress bar}{fg=blue}
+\setbeamertemplate{footline}[frame number]{}
+
+% BACKUP SLIDE NUMBERING
+%\usepackage{appendixnumberbeamer}
+
+% TOGGLES
+%\newtoggle{25minutes} \togglefalse{25minutes}
+
+
+%using subfig with bug fix, per https://tex.stackexchange.com/questions/426088/texlive-pretest-2018-beamer-and-subfig-collide
+\usepackage{subfig}
+\makeatletter
+\let\@@magyar@captionfix\relax
+\makeatother
+
+\begin{document}
+
+%---------------------------------------------------------------------
+\begin{frame}[plain]
+\setcounter{framenumber}{0}
+\titlepage
+\end{frame}
+%---------------------------------------------------------------------
+\section*{Why should I use the command line?}
+\input{sections/intro.tex}
+%---------------------------------------------------------------------
+\section{Command line 101}
+\input{sections/basics.tex}
+\section{GitHub, the right way}
+\input{sections/git.tex}
+\section{Automate what can be automated}
+\input{sections/automate.tex}
+\section{Living in the terminal}
+\input{sections/life.tex}
+%\section*{Conclusions}
+%\input{sections/conclusions.tex}
+%---------------------------------------------------------------------
+
+%%---------------------------------------------------------------------
+%\appendix
+
+%\setbeamertemplate{footline}{\hfill Appendix: \insertframenumber}
+
+\begin{frame}[plain] \begin{center}{\LARGE Thank you}\end{center} \end{frame}
+%%---------------------------------------------------------------------
+
+\bibliographystyle{../bib/aea}
+\nobibliography{../bib/bib}
+
+\end{document}
